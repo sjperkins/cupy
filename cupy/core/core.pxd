@@ -102,4 +102,5 @@ cdef class Indexer:
 
 cpdef ndarray ascontiguousarray(ndarray a, dtype=*)
 cpdef Module compile_with_cache(str source, tuple options=*, arch=*,
-                                cachd_dir=*, prepend_cupy_headers=*)
+                                cachd_dir=*, prepend_cupy_headers=*,
+                                backend=*)

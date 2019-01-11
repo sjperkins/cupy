@@ -4,3 +4,4 @@ cdef class RawKernel:
         readonly str code
         readonly str name
         readonly tuple options
+        readonly str backend
