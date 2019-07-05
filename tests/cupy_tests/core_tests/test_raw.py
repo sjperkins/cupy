@@ -13,14 +13,6 @@ void test_sum(const float* x1, const float* x2, float* y) {
 
 
 class TestRaw(unittest.TestCase):
-    def test_basic(self):
-        kern = cupy.RawKernel(_test_source, 'test_sum')
-        x1 = cupy.arange(100, dtype=cupy.float32).reshape(10, 10)
-        x2 = cupy.ones((10, 10), dtype=cupy.float32)
-        y = cupy.zeros((10, 10), dtype=cupy.float32)
-        kern((10,), (10,), (x1, x2, y))
-        assert (y == x1 + x2).all()
-
     def test_backends(self):
         for backend in ('nvrtc', 'nvcc'):
             kern = cupy.RawKernel(_test_source, 'test_sum', backend=backend)
